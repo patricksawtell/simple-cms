@@ -1,0 +1,20 @@
+<!-- <h1>Sections#new</h1>
+<p>Find me in app/views/sections/new.html.erb</p>
+ -->
+<% @page_title = "New Section" %>
+<%= link_to("<< Back to List", sections_path(:page_id => @page.id), :class => 'back-link') %>
+
+<div class="Sections new">
+	<h2>Create Section</h2>
+
+	<!-- post request on sections_path to create new item on resource -->
+	<%= form_for(@section, :url => sections_path(:page_id => @page.id)) do |f| %>
+
+		<%= render(:partial => 'form', :locals => {:f => f}) %>
+	
+		<div class="form-buttons">
+			<%= f.submit("Create Section") %>
+		</div>
+	<% end %>
+</div>
+

@@ -1,0 +1,19 @@
+<!-- <h1>Sections#edit</h1>
+<p>Find me in app/views/sections/edit.html.erb</p>
+ -->
+<% @page_title = "Edit Section" %>
+<%= link_to("<< Back to List", sections_path(:page_id => @page.id), :class => 'back-link') %>
+
+<div class="Sections edit">
+	<h2>Create Section</h2>
+
+	<!-- 'patch' request on section resource that already exists -->
+	<%= form_for(@section, :url => section_path(@section, :page_id => @page.id)) do |f| %>
+
+		<%= render(:partial => 'form', :locals => {:f => f}) %>
+	
+		<div class="form-buttons">
+			<%= f.submit("Edit Section") %>
+		</div>
+	<% end %>
+</div>
